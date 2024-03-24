@@ -1,12 +1,17 @@
-import { useEffect, useState } from "react";
-import { fetchUsers } from "../../services";
-import UserCard from "../UserCard/UserCard";
-import SearchBar from "../SearchBar/SearchBar";
+import React, { useEffect, useState } from "react";
+import { fetchUsers } from "../services/index.ts";
+import UserCard from "./UserCard.tsx";
+import SearchBar from "./SearchBar.tsx";
 
-export default function Users() {
-  const [users, setUsers] = useState([]);
-  const [inputValue, setInputValue] = useState("");
-  const [sortAsc, setSortAsc] = useState(false);
+interface User {
+  id: number;
+  username: string;
+}
+
+const Users: React.FC = () => {
+  const [users, setUsers] = useState<User[]>([]);
+  const [inputValue, setInputValue] = useState<string>("");
+  const [sortAsc, setSortAsc] = useState<boolean>(false);
 
   useEffect(() => {
     getAllUsers();
@@ -61,4 +66,6 @@ export default function Users() {
       )}
     </div>
   );
-}
+};
+
+export default Users;

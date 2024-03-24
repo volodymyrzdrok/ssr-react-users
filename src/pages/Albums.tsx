@@ -1,18 +1,23 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchUserAlbums } from "../services";
-import AlbumCard from "../components/AlbumCard/AlbumCard";
-import MetaTags from "../components/MetaTags/MetaTags";
+import { fetchUserAlbums } from "../services/index.ts";
+import AlbumCard from "../components/AlbumCard.tsx";
+import MetaTags from "../components/MetaTags.tsx";
 
-export default function Albums() {
-  const [albums, setAlbums] = useState([]);
-  const { userId } = useParams();
+interface Album {
+  id: number;
+  title: string;
+}
+
+const Albums: React.FC = () => {
+  const [albums, setAlbums] = useState<Album[]>([]);
+  const { userId } = useParams<{ userId: string }>();
 
   useEffect(() => {
-    getUserAlbums(userId);
+    getUserAlbums(Number(userId));
   }, [userId]);
 
-  const getUserAlbums = async (id) => {
+  const getUserAlbums = async (id: number) => {
     try {
       const response = await fetchUserAlbums(id);
       setAlbums(response);
@@ -39,4 +44,6 @@ export default function Albums() {
       </div>
     </>
   );
-}
+};
+
+export default Albums;

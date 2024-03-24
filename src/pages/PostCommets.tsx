@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchPostComments } from "../services";
-import MetaTags from "../components/MetaTags/MetaTags";
+import { fetchPostComments } from "../services/index.ts";
+import MetaTags from "../components/MetaTags.tsx";
 
-export default function PostComments() {
-  const [comments, setComments] = useState([]);
-  const { userId } = useParams();
+interface Comment {
+  body: string;
+  email: string;
+  id: number;
+  name: string;
+  postId: number;
+}
+
+const PostComments: React.FC = () => {
+  const [comments, setComments] = useState<Comment[]>([]);
+  const { userId } = useParams<{ userId: string }>();
 
   useEffect(() => {
     getPostComments(userId);
   }, [userId]);
 
-  const getPostComments = async (id) => {
+  const getPostComments = async (id: string) => {
     try {
       const response = await fetchPostComments(id);
       setComments(response);
@@ -29,7 +37,7 @@ export default function PostComments() {
       <div className="container mx-auto p-4">
         <h2 className="text-center font-bold mb-4">Comments</h2>
         <ul className="">
-          {comments.map(({ body, email, id, name, postId }) => (
+          {comments.map(({ body, email, id, name }) => (
             <li
               key={id}
               className="border-b border-gray-300  p-4 mb-4 shadow-md"
@@ -46,3 +54,5 @@ export default function PostComments() {
     </>
   );
 }
+
+export default PostComments;

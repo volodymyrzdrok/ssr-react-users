@@ -1,18 +1,25 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchUserPosts } from "../services";
-import PostCard from "../components/PostCard/PostCard";
-import MetaTags from "../components/MetaTags/MetaTags";
+import { fetchUserPosts } from "../services/index.ts";
+import PostCard from "../components/PostCard.tsx";
+import MetaTags from "../components/MetaTags.tsx";
 
-export default function Post() {
-  const [posts, setPosts] = useState([]);
-  const { userId } = useParams();
+interface Post {
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
+}
+
+const Post: React.FC = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const { userId } = useParams<{ userId: string }>();
 
   useEffect(() => {
     getUserPosts(userId);
   }, [userId]);
 
-  const getUserPosts = async (id) => {
+  const getUserPosts = async (id: string) => {
     try {
       const response = await fetchUserPosts(id);
       setPosts(response);
@@ -44,3 +51,5 @@ export default function Post() {
     </>
   );
 }
+
+export default Post;

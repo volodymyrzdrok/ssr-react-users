@@ -1,6 +1,12 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 
-export default function UserCard({ id, username }) {
+interface UserCardProps {
+  id: number;
+  username: string;
+}
+
+const UserCard: React.FC<UserCardProps> = ({ id, username }) => {
   return (
     <div className="border border-gray-300 rounded p-4 shadow-md">
       <p className="text-xl font-semibold mb-2">{username}</p>
@@ -18,3 +24,5 @@ export default function UserCard({ id, username }) {
     </div>
   );
 }
+
+export default UserCard;

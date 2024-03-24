@@ -1,8 +1,9 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
-import routes from "../routes";
-import MetaTags from "../components/MetaTags/MetaTags";
+import routes from "../routes/index.ts";
+import MetaTags from "../components/MetaTags.tsx";
 
-export default function NotFound() {
+const NotFound: React.FC = () => {
   return (
     <>
       <MetaTags
@@ -32,3 +33,5 @@ export default function NotFound() {
     </>
   );
 }
+
+export default NotFound;

@@ -1,7 +1,12 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
-export default function SearchBar({ setInputValue, inputValue }) {
+interface SearchBarProps {
+  setInputValue: React.Dispatch<React.SetStateAction<string>>;
+  inputValue: string;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ setInputValue, inputValue }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query");
 
@@ -11,7 +16,7 @@ export default function SearchBar({ setInputValue, inputValue }) {
     }
   }, []);
 
-  const handleChange = (evt) => {
+  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const value = evt.target.value.toLowerCase().trim();
 
     setInputValue(value);
@@ -30,3 +35,5 @@ export default function SearchBar({ setInputValue, inputValue }) {
     </div>
   );
 }
+
+export default SearchBar;

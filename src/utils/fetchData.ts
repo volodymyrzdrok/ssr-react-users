@@ -1,9 +1,10 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
+
 axios.defaults.baseURL = "https://jsonplaceholder.typicode.com/";
 
-export async function fetchData(url) {
+export async function fetchData<T>(url: string): Promise<T> {
   try {
-    const response = await axios.get(url);
+    const response: AxiosResponse<T> = await axios.get(url);
     return response.data;
   } catch (error) {
     console.error(error);

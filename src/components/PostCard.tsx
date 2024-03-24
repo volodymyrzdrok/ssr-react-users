@@ -1,6 +1,13 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 
-export default function PostCard({ title, body, userId }) {
+interface PostCardProps {
+  title: string;
+  body: string;
+  userId: number;
+}
+
+const PostCard: React.FC<PostCardProps> = ({ title, body, userId }) => {
   return (
     <div className="border border-gray-300 rounded p-4 shadow-md mb-4">
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
@@ -14,3 +21,5 @@ export default function PostCard({ title, body, userId }) {
     </div>
   );
 }
+
+export default PostCard;

@@ -1,7 +1,13 @@
 import React from "react";
 import { NavLink, useLocation, useParams } from "react-router-dom";
 
-export default function AlbumCard({ userId, id, title }) {
+interface AlbumCardProps {
+  userId: number;
+  id: number;
+  title: string;
+}
+
+const AlbumCard: React.FC<AlbumCardProps> = ({ userId, id, title }) => {
   const { pathname } = useLocation();
 
   return (
@@ -16,3 +22,5 @@ export default function AlbumCard({ userId, id, title }) {
     </div>
   );
 }
+
+export default AlbumCard;
