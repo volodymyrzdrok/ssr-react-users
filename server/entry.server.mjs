@@ -359,7 +359,7 @@ const App = () => {
 };
 function render(url) {
   return ReactDOMServer.renderToString(
-    /* @__PURE__ */ jsx(React.StrictMode, { children: /* @__PURE__ */ jsx(StaticRouter, { location: url, basename: "/ssr-react-users", children: /* @__PURE__ */ jsx(App, {}) }) })
+    /* @__PURE__ */ jsx(React.StrictMode, { children: /* @__PURE__ */ jsx(StaticRouter, { location: url, basename: "/", children: /* @__PURE__ */ jsx(App, {}) }) })
   );
 }
 export {
