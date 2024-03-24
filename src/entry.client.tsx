@@ -8,7 +8,7 @@ import App from "./App.tsx";
 ReactDOM.hydrateRoot(
   document.getElementById("app"),
   <React.StrictMode>
-    <BrowserRouter basename="/ssr-react-users">
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>

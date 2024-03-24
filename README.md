@@ -27,10 +27,10 @@ Run the app in development mode with the following command:
 
 This app is deployed on GitHub Pages at [https://volodymyrzdrok.github.io/ssr-react-users](https://volodymyrzdrok.github.io/ssr-react-users).
 
-## Data Source
+#### Data Source
 
 The app uses [JSONPlaceholder](https://jsonplaceholder.typicode.com/) as the data source.
 
-## Author
+#### Author
 
 Author: [Volodymyr Zdrok](https://github.com/volodymyrzdrok)
