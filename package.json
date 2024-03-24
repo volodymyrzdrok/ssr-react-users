@@ -1,13 +1,15 @@
 {
   "name": "ssr-react-users",
   "private": true,
+  "homepage": "https://volodymyrzdrok.github.io/ssr-react-users",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node server.js",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build --outDir dist/client --ssrManifest",
     "build:server": "vite build --ssr src/entry.server.tsx --outDir dist/server",
     "start": "cross-env NODE_ENV=production node server.js",
-    "debug": "node --inspect-brk server.js"
+    "debug": "node --inspect-brk server.js",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "axios": "^1.6.8",
@@ -26,6 +28,7 @@
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.0.1",
     "autoprefixer": "^10.4.19",
+    "gh-pages": "6.1.1",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.1",
     "typescript": "^4.9.5",

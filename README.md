@@ -1,22 +1,36 @@
----
-title: Server Rendering
-toc: false
----
+# SSR React Users
 
-# Server-side Rendering Example
+SSR React Users is a web application developed using React library with server-side rendering (SSR). The application allows users to browse through a list of users, their albums, posts, and comments, providing dynamic data display.
 
-This example adds [server-side rendering](https://reactjs.org/docs/react-dom-server.html) (SSR) to our basic example.
+## Features
 
-With SSR, the server renders your app and sends real HTML to the browser instead of an empty HTML document with a bunch of `<script>` tags. After the browser loads the HTML and JavaScript from the server, React "hydrates" the HTML document using the same components it used to render the app on the server.
+- **User List**: Users can view a list of users, each having their own detailed profile page.
+- **Albums**: The app provides the ability to view albums of users along with their images.
+- **Posts**: Users can view posts of users along with comments on each post.
+- **Search and Sort**: The app supports searching for users by their name and sorting lists based on different criteria.
 
-This example contains a server (see [server.js](server.js)) that can run in both development and production modes.
+1. Clone the repository:
 
-In the browser entry point (see [src/entry.client.tsx](src/entry.client.tsx)), we use React Router like we would traditionally do in a purely client-side app and render a `<BrowserRouter>` to provide routing context to the rest of the app. The main difference is that instead of using `ReactDOM.createRoot(el).render()` to render the app, since the HTML was already sent by the server, all we need is `ReactDOM.hydrateRoot()`.
+   ```bash
+   git clone https://github.com/volodymyrzdrok/ssr-react-users.git
+   ```
 
-On the server (see [src/entry.server.tsx](src/entry.server.tsx)), we use React Router's `<StaticRouter>` to render the app and plug in the URL we get from the incoming HTTP request.
+2. Install dependencies:
 
-## Preview
+## npm install
 
-Open this example on [StackBlitz](https://stackblitz.com):
+Run the app in development mode with the following command:
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router/tree/main/examples/ssr?file=src/App.tsx)
+## npm run dev
+
+## GitHub Pages
+
+This app is deployed on GitHub Pages at [https://volodymyrzdrok.github.io/ssr-react-users](https://volodymyrzdrok.github.io/ssr-react-users).
+
+## Data Source
+
+The app uses [JSONPlaceholder](https://jsonplaceholder.typicode.com/) as the data source.
+
+## Author
+
+Author: [Volodymyr Zdrok](https://github.com/volodymyrzdrok)

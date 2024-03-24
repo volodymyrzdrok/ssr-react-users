@@ -36,4 +36,5 @@ export default defineConfig({
         },
       }
     : {},
+  base: "/ssr-react-users",
 });
