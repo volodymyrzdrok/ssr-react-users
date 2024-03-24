@@ -7,7 +7,7 @@ import App from "./App.tsx";
 export function render(url: string) {
   return ReactDOMServer.renderToString(
     <React.StrictMode>
-      <StaticRouter location={url}>
+      <StaticRouter location={url} basename={import.meta.env.BASE_URL}>
         <App />
       </StaticRouter>
     </React.StrictMode>
