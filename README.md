@@ -23,7 +23,7 @@ Run the app in development mode with the following command:
 
 ## npm run dev
 
-## GitHub Pages
+#### GitHub Pages
 
 This app is deployed on GitHub Pages at [https://volodymyrzdrok.github.io/ssr-react-users](https://volodymyrzdrok.github.io/ssr-react-users).
 
