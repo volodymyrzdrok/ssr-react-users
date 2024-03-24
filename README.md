@@ -25,7 +25,7 @@ Run the app in development mode with the following command:
 
 #### GitHub Pages
 
-This app is deployed on GitHub Pages at [https://volodymyrzdrok.github.io/ssr-react-users](https://volodymyrzdrok.github.io/ssr-react-users).
+This app is deployed on [https://ssrreactusers-ltwx--3000--d0228c83.local-credentialless.webcontainer.io](https://ssrreactusers-ltwx--3000--d0228c83.local-credentialless.webcontainer.io).
 
 #### Data Source
 
